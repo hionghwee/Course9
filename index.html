@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shiny App for evaluating stock on Bullish/Bearish signal through moving averages</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Shiny App for evaluating stock on Bullish/Bearish signal through moving averages">
+  <meta name="author" content="Hiong Hwee">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Shiny App for evaluating stock on Bullish/Bearish signal through moving averages</h1>
+    <h2></h2>
+    <p>Hiong Hwee<br/>Coursera Data Science Student</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction (Slide 2/5)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This presentation is demonstrate the usage of Shiny App to generate stock signal and make you a sucessful investor!</p>
+
+<p>Moving averages (division of stock price over time periods by the number of time periods) can be used as indicators for stock prediction. </p>
+
+<p>We will be using the cross over of a shorter moving average to a longer moving average to determine buying (bullish) and selling (bearish) signals.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Screenshot of the Shiny App (Slide 3/5)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This is how the Shiny App looks like and can be found on <a href="https://hionghwee.shinyapps.io/stock">https://hionghwee.shinyapps.io/stock</a>.</p>
+
+<div style='text-align: center;'>
+<img height='500' width='1000' src='./assets/img/Course9.jpg' />
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Example Plot - non-interactive (Slide 4/5)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Example plot of the app (non-interactive) with Apple stock data from Yahoo Finance and moving averages of 3 and 15 days. </p>
+
+<p>Check out the Shiny App for other stock charts or moving average indicators to get your winning stock signal formula!</p>
+
+<pre><code class="r">library(quantmod); options(getSymbols.warning4.0=FALSE)
+data &lt;- getSymbols(&quot;AAPL&quot;, src = &quot;yahoo&quot;, from = &quot;2015-06-01&quot;,to = &quot;2015-09-26&quot;, auto.assign = FALSE)
+chartSeries(data, theme = chartTheme(&quot;white&quot;), name = &quot;Stock evaluation&quot;, type = &quot;candlesticks&quot;, TA= &quot;addSMA(n=3);addSMA(n=15)&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Conclusion (Slide 5/5)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The App is versatile and you can choose the stock symbol, the time period , and the moving averages you want to evaluate. </p>
+
+<p>The Main Panel of the App will show based on the the moving averages for the latest day (second time period you have chosen), whether to buy or sell the stock. </p>
+
+<p>If the 1st (shorter) moving average is higher than the 2nd (longer) moving average, it is a buy signal and vice-versa.</p>
+
+<p>Thank you for considering this Shiny App and hope you find the winning investment strategy through it. </p>
+
+<p>In investing as always, do remember that past performance does not necessarily predict future results!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction (Slide 2/5)'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Screenshot of the Shiny App (Slide 3/5)'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Example Plot - non-interactive (Slide 4/5)'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Conclusion (Slide 5/5)'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='NA'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
